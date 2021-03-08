@@ -15,5 +15,5 @@ then
     echo "MONGODB_2_SERVICE_SERVICE_HOST: $MONGODB_2_SERVICE_SERVICE_HOST:$MONGODB_2_SERVICE_SERVICE_PORT" >> /root/env.txt
 else
     echo "Starting MongoDB as standalone instance" >> reconfig-mongo-rs-log.txt
-    mongod --port 27017 --bind_ip localhost,$POD_IP_ADDRESS,$MONGODB_0_SERVICE_SERVICE_HOST --dbpath /data/db/rs0-0
+    mongod --port 27017 --bind_ip 0.0.0.0,$POD_IP_ADDRESS,$MONGODB_0_SERVICE_SERVICE_HOST --dbpath /data/db/rs0-0
 fi
