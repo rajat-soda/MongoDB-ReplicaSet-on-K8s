@@ -19,7 +19,7 @@ done
 echo "Sending in Replica Set configuration..." >> reconfig-mongo-rs-log.txt
 
 mongo --eval "mongodb = ['$MONGODB_0_SERVICE_SERVICE_HOST:$MONGODB_0_SERVICE_SERVICE_PORT', '$MONGODB_1_SERVICE_SERVICE_HOST:$MONGODB_1_SERVICE_SERVICE_PORT', '$MONGODB_2_SERVICE_SERVICE_HOST:$MONGODB_2_SERVICE_SERVICE_PORT']" --shell << EOL
-cfg = rs.conf()
+var cfg = rs.conf()
 cfg.members[0].host = mongodb[0]
 cfg.members[1].host = mongodb[1]
 cfg.members[2].host = mongodb[2]
